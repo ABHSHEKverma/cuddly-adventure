@@ -1,12 +1,4 @@
-// ============================================================
-// ddos-test.js — Fake DDoS Simulation for the Security Gateway
-// ============================================================
-// This script simulates many users trying to access the
-// protected site at the same time, demonstrating how the
-// rate limiter blocks excess traffic.
-// ============================================================
-
-const TOTAL_REQUESTS = 15; // Total "attackers" trying to get in
+const TOTAL_REQUESTS = 15;
 const SERVER = "http://localhost:3000";
 
 console.log();
@@ -18,14 +10,12 @@ console.log(` Total attacks : ${TOTAL_REQUESTS}`);
 console.log("==============================================");
 console.log();
 
-// First, check current server status
 async function getStatus() {
   const res = await fetch(`${SERVER}/api/status`);
   return res.json();
 }
 
 async function attack() {
-  // Show status before attack
   const before = await getStatus();
   console.log(`[BEFORE] Active users: ${before.activeUsers}/${before.maxUsers}`);
   console.log();
@@ -33,7 +23,6 @@ async function attack() {
   let allowed = 0;
   let blocked = 0;
 
-  // Fire all requests at once (like a real DDoS)
   console.log("Launching attack...");
   console.log("─".repeat(46));
 

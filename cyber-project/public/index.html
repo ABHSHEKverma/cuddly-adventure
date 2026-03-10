@@ -8,7 +8,6 @@
 </head>
 <body>
   <div class="container gateway-page">
-    <!-- Shield icon (pure CSS, no external dependency) -->
     <div class="shield-icon">&#128737;</div>
 
     <h1>Security Gateway</h1>
@@ -17,12 +16,10 @@
       Only a limited number of users may access the site at the same time.
     </p>
 
-    <!-- The button the visitor clicks to attempt entry -->
     <button id="enter-btn" class="btn btn-primary">
       &#9889; Request Access
     </button>
 
-    <!-- Status message shown after the check -->
     <p id="status-msg" class="status-msg"></p>
 
     <div class="info-box">
@@ -36,7 +33,6 @@
       </ol>
     </div>
 
-    <!-- Tiny admin panel to see live stats -->
     <div class="admin-panel">
       <h3>&#128200; Live Server Status</h3>
       <div id="admin-stats">Loading...</div>
@@ -44,41 +40,31 @@
   </div>
 
   <script>
-    // ============================================================
-    // Gateway page logic
-    // ============================================================
-
     const enterBtn = document.getElementById("enter-btn");
     const statusMsg = document.getElementById("status-msg");
     const adminStats = document.getElementById("admin-stats");
 
-    // When the user clicks "Request Access"
     enterBtn.addEventListener("click", async () => {
       enterBtn.disabled = true;
       statusMsg.textContent = "Checking availability...";
       statusMsg.className = "status-msg";
 
       try {
-        // Send a POST request to the backend
         const response = await fetch("/api/request-access", {
           method: "POST",
         });
         const data = await response.json();
 
         if (data.allowed) {
-          // Access granted — redirect to the protected site
           statusMsg.textContent = "Access granted! Redirecting...";
           statusMsg.classList.add("success");
 
-          // Save the token so the protected page can release it later
           sessionStorage.setItem("gateway-token", data.token);
 
-          // Short delay so the user can read the message
           setTimeout(() => {
             window.location.href = "site.html";
           }, 800);
         } else {
-          // Access denied — redirect to the blocked page
           statusMsg.textContent = "Server is busy. Redirecting...";
           statusMsg.classList.add("error");
 
@@ -93,7 +79,6 @@
       }
     });
 
-    // Poll the admin status endpoint every 2 seconds
     async function refreshStatus() {
       try {
         const res = await fetch("/api/status");

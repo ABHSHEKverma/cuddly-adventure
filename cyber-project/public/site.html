@@ -41,16 +41,12 @@
   </div>
 
   <script>
-    // ============================================================
-    // Protected page logic
-    // ============================================================
-
     const token = sessionStorage.getItem("gateway-token");
     const tokenDisplay = document.getElementById("token-display");
     const countdownEl = document.getElementById("countdown");
     const leaveBtn = document.getElementById("leave-btn");
 
-    // If no token → the user didn't come through the gateway
+
     if (!token) {
       document.querySelector(".container").innerHTML = `
         <div class="shield-icon">&#128683;</div>
@@ -59,10 +55,8 @@
         <a href="index.html" class="btn btn-primary">Go to Gateway</a>
       `;
     } else {
-      // Show a truncated token for display
       tokenDisplay.textContent = token.slice(0, 16) + "...";
 
-      // Countdown timer (visual only — the server handles real expiry)
       let seconds = 60;
       const interval = setInterval(() => {
         seconds--;
@@ -74,7 +68,6 @@
         }
       }, 1000);
 
-      // Leave button — immediately frees the user slot
       leaveBtn.addEventListener("click", async () => {
         leaveBtn.disabled = true;
         clearInterval(interval);
@@ -86,7 +79,6 @@
             body: JSON.stringify({ token }),
           });
         } catch {
-          // Ignore errors — the slot will time out eventually
         }
 
         sessionStorage.removeItem("gateway-token");

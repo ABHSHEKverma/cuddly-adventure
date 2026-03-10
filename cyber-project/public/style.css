@@ -1,8 +1,3 @@
-/* ============================================================
-   style.css — Styling for the Security Gateway project
-   ============================================================ */
-
-/* ---------- Reset & Base ---------- */
 *,
 *::before,
 *::after {
@@ -21,7 +16,6 @@ body {
   justify-content: center;
 }
 
-/* ---------- Container ---------- */
 .container {
   max-width: 620px;
   width: 90%;
@@ -36,7 +30,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Page-specific backgrounds ---------- */
 .gateway-page {
   background: linear-gradient(145deg, #161627, #1c1c35);
   border: 1px solid #2a2a50;
@@ -52,7 +45,6 @@ body {
   border: 1px solid #5a1e1e;
 }
 
-/* ---------- Shield Icon ---------- */
 .shield-icon {
   font-size: 4rem;
   margin-bottom: 0.5rem;
@@ -71,7 +63,6 @@ body {
   50%      { transform: scale(1.15); }
 }
 
-/* ---------- Typography ---------- */
 h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
@@ -85,7 +76,6 @@ h1 {
   line-height: 1.6;
 }
 
-/* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -125,7 +115,6 @@ h1 {
   background: linear-gradient(135deg, #f25c4e, #d04435);
 }
 
-/* ---------- Status Message ---------- */
 .status-msg {
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -141,7 +130,6 @@ h1 {
   color: #e74c3c;
 }
 
-/* ---------- Info Box ---------- */
 .info-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -176,7 +164,6 @@ h1 {
   color: #ccc;
 }
 
-/* ---------- Content Box (Protected Page) ---------- */
 .content-box {
   background: rgba(46, 204, 113, 0.06);
   border: 1px solid rgba(46, 204, 113, 0.2);
@@ -206,7 +193,6 @@ h1 {
   line-height: 1.8;
 }
 
-/* ---------- Session Info ---------- */
 .session-info {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 8px;
@@ -220,7 +206,6 @@ h1 {
   margin: 0.3rem 0;
 }
 
-/* ---------- Admin Panel ---------- */
 .admin-panel {
   margin-top: 2rem;
   background: rgba(74, 108, 247, 0.06);

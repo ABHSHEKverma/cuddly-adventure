@@ -1,10 +1,9 @@
-@echo off
+`@echo off
 echo ==============================================
 echo  Website Rate Limiting Security Gateway
 echo ==============================================
 echo.
 
-:: Kill any existing node process to free port 3000
 taskkill /IM node.exe /F >nul 2>&1
 timeout /t 1 /nobreak >nul
 
