@@ -1,7 +1,5 @@
 `@echo off
-echo ==============================================
 echo  Website Rate Limiting Security Gateway
-echo ==============================================
 echo.
 
 taskkill /IM node.exe /F >nul 2>&1
